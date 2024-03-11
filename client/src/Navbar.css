@@ -1,0 +1,36 @@
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; /* Use space-between for spacing between items */
+    align-items: center;
+    padding: 10px; /* Add padding for better spacing */
+    position: static;
+  
+    /* Additional styles for better appearance */
+    background-color: #f8f9fa; /* Set background color */
+    border-bottom: 1px solid #e0e0e0; /* Add a border at the bottom for separation */
+  }
+  
+  .navbar li {
+    margin: 0; /* Remove margin for better alignment */
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #cd5c5c;
+  }
+  
+  .navbar form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar input {
+    margin-right: 10px; /* Add margin to the right of the input */
+  }
+  
+  /* Override Bootstrap styles for the search button */
+  .navbar button {
+    margin-top: 0; /* Remove the top margin to align with the input */
+  }
+  
