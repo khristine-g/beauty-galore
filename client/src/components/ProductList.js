@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import '../ProductList.css';
 import Category from './Category';
 import ProductInfo from './ProductInfo';
+// import BestSeller from './BestSeller';
 
-function ProductList({ cart: propCart }) {
+
+function ProductList({ cart: propCart, bestSellingProducts  }) {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -63,6 +65,7 @@ function ProductList({ cart: propCart }) {
     setSelectedProduct(null);
     setSelectedCategory(null);
   };
+ 
 
   return (
     <div className='ProductList'>
@@ -97,12 +100,16 @@ function ProductList({ cart: propCart }) {
                     </div>
                   ))}
                 </div>
+                {/* <BestSeller bestSellerCategory={bestSellerCategory} /> */}
+                
               </>
             )}
           </>
         )}
       </div>
     </div>
+
+
   );
 }
 

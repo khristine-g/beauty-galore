@@ -28,9 +28,16 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
+  const handleSearch = (searchQuery) => {
+    // Handle the search functionality here
+    console.log('Search Query:', searchQuery);
+    // You can update the state or perform other actions based on the search query
+  };
+
   return (
     <Router>
-      <Navbar />
+      <Navbar onSearch={handleSearch} />
+      
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />

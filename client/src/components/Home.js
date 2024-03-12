@@ -1,7 +1,8 @@
 import React from 'react';
-
 import { Carousel } from 'react-bootstrap';
 import ProductList from './ProductList';
+import BestSeller from './BestSeller';
+import '../Home.css';
 
 
 const Home = () => {
@@ -11,17 +12,28 @@ const Home = () => {
     'https://media.restless.co.uk/uploads/2022/09/ways-to-cut-the-cost-of-your-beauty-routine.jpg',
   ];
 
+  const bestSellerCategory = 'Best Selling';
+
   return (
     <>
+    <div className='home-container'>
+    
       <Carousel>
         {images.map((image, index) => (
           <Carousel.Item key={index}>
-            <img className="d-block w-100" src={image} alt={`Slide ${index + 1}`} />
+            <img className="d-block w-100 l-60" src={image} alt={`Slide ${index + 1}`} />
           </Carousel.Item>
         ))}
       </Carousel>
 
+      </div>
+     
+
+      <BestSeller bestSellerCategory={bestSellerCategory} />
+    
+
       <ProductList />
+     
     </>
   );
 };

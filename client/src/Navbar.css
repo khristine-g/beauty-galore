@@ -9,15 +9,18 @@
     /* Additional styles for better appearance */
     background-color: #f8f9fa; /* Set background color */
     border-bottom: 1px solid #e0e0e0; /* Add a border at the bottom for separation */
+  
   }
   
   .navbar li {
     margin: 0; /* Remove margin for better alignment */
+   
   }
   
   .navbar a {
     text-decoration: none;
     color: #cd5c5c;
+    margin-left: 100px;
   }
   
   .navbar form {

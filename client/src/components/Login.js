@@ -44,7 +44,7 @@ const Login = () => {
 
         // Redirect to the homepage
         console.log('Navigating to /home');
-        navigate('/home'); // Replace '/' with the actual path of your homepage
+        navigate('/');
       } else {
         console.error('Login failed:', response.status, response.statusText);
       }
