@@ -1,20 +1,37 @@
-/* Home.css */
+
 
 .home-container {
     max-width: 100vw;
-    max-height: 50vh;
-    margin: 0 auto;
+    max-height: 100vh;
+    margin-bottom: 100px;
  
   }
   
   .carousel-item img {
-    max-height: 300px !important;
 
-    width: 50%;
-    height: 100%; 
+    height: 80vh;
     object-fit: cover; 
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-height: 30vh;
+   
   }
+  .home-text {
+    color: white;
+    font-size: 50px;
+    animation: slideInFromLeft 1s ease forwards;
+   
+  }
+  
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  
   

@@ -1,26 +1,27 @@
 .navbar {
     list-style: none;
     display: flex;
-    justify-content: space-between; /* Use space-between for spacing between items */
+    justify-content: space-between; 
     align-items: center;
-    padding: 10px; /* Add padding for better spacing */
+    padding: 40px; 
     position: static;
-  
-    /* Additional styles for better appearance */
-    background-color: #f8f9fa; /* Set background color */
-    border-bottom: 1px solid #e0e0e0; /* Add a border at the bottom for separation */
+    background-color:white; 
+    border-bottom: 1px solid #e0e0e0; 
   
   }
   
   .navbar li {
-    margin: 0; /* Remove margin for better alignment */
+    margin: 0; 
    
   }
   
   .navbar a {
+    font-size: 18px;
     text-decoration: none;
-    color: #cd5c5c;
-    margin-left: 100px;
+    color: black;
+    margin-right: 40px;
+    margin-left: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
   
   .navbar form {
@@ -29,11 +30,15 @@
   }
   
   .navbar input {
-    margin-right: 10px; /* Add margin to the right of the input */
+    margin-right: 10px; 
   }
   
-  /* Override Bootstrap styles for the search button */
+  
   .navbar button {
-    margin-top: 0; /* Remove the top margin to align with the input */
+    margin-top: 0; 
+  }
+  .nav-item2{
+
+    margin-left:20px;
   }
   

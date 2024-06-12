@@ -71,9 +71,7 @@ const Signup = ({ csrfToken }) => {
 
   return (
     <div className="signup-container">
-      <div className="signup-image">
-        <img src=' https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1598973907-la-roche-posay-1598973904.jpg?crop=1xw:1xh;center,top&resize=980:*' alt="Signup" />
-      </div>
+     
       <div className="signup-form-container">
         <form onSubmit={handleSubmit} className="signup-form">
           <div className="form-group">
@@ -82,7 +80,6 @@ const Signup = ({ csrfToken }) => {
               type="text"
               className="form-control"
               id="name"
-              placeholder="Enter your name"
               value={name}
               onChange={handleNameChange}
             />
@@ -105,7 +102,6 @@ const Signup = ({ csrfToken }) => {
               type="password"
               className="form-control"
               id="password"
-              placeholder="Password"
               value={password}
               onChange={handlePasswordChange}
             />
@@ -116,7 +112,6 @@ const Signup = ({ csrfToken }) => {
               type="password"
               className="form-control"
               id="confirmPassword"
-              placeholder="Confirm password"
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
             />
