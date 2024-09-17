@@ -55,6 +55,8 @@
 .price {
   margin: 5px 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+ 
 }
 
 .product-rating {
