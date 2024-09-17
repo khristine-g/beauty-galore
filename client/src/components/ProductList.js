@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../ProductList.css';
 import ProductInfo from './ProductInfo';
 
@@ -6,6 +7,7 @@ function ProductList({ selectedCategory, cart, setCart, removeFromCart }) {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,7 +28,7 @@ function ProductList({ selectedCategory, cart, setCart, removeFromCart }) {
 
   const handleSelectProduct = (productId) => {
     const product = products.find((product) => product.id === productId);
-    setSelectedProduct(product);
+    navigate('/product-info', { state: { product } });
   };
 
   const handleGoBack = () => {
@@ -62,7 +64,9 @@ function ProductList({ selectedCategory, cart, setCart, removeFromCart }) {
           <ProductInfo product={selectedProduct} onGoBack={handleGoBack} />
         ) : (
           <>
-            <h1 className='product-header'>Top Products</h1>
+            <h2 className='product-header'>MOST POPULAR PRODUCTS</h2>
+            <p>The World's Premium Brands In One Destination.</p>
+
             <div className="carousel-container">
               <button className="prev-btn" onClick={handlePrev}>&lt;</button>
               <div className="carousel-track-container">

@@ -8,6 +8,7 @@ import Cart from './components/Cart';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Checkout from './components/Checkout';
+import ProductInfo from './components/ProductInfo';
 
 import './App.css';
 
@@ -51,6 +52,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/cart" element={<Cart cart={cart} onRemoveFromCart={removeFromCart} />} />
+          <Route path="/product-info" element={<ProductInfo />} />
           <Route path="/checkout" element={<Checkout cart={cart} />} />
         </Routes>
       </div>

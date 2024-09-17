@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList';
 import Category from './Category';
+import Shop from './Shop';
 import '../Home.css';
 
 const Home = () => {
   const slides = [
     {
-      image: 'https://cdn.shopify.com/s/files/1/0012/1657/7656/files/self-care-items-every-woman-needs.jpg?v=1680117344',
+      image: ' https://lucebeauty.com/cdn/shop/articles/Blog_picture_resized_8.png?v=1688026170',
       text: 'Discover our self-care essentials',
     },
     {
-      image: 'https://cdn.shopify.com/s/files/1/0492/8680/7715/files/shiko_skincare_banner.jpg?v=1616592023',
+      image: 'https://www.beautyheaven.com.au/wp-content/uploads/2022/08/bh-header-oily-skin-care.png',
       text: 'Experience the magic of skincare',
     },
     {
-      image: 'https://st5.depositphotos.com/62628780/62388/i/450/depositphotos_623885620-stock-photo-skincare-beauty-black-women-friends.jpg',
+      image: 'https://cureaquagel.com/cdn/shop/articles/November-Is-National-Health-Skin-Month-Its-Time-To-Promote-Good-Skin-Care-Habits.jpg?v=1660056045',
       text: 'Enhance your beauty routine with friends',
     },
   ];
@@ -49,7 +50,9 @@ const Home = () => {
 
       {/* Category and ProductList displayed below the images */}
       <Category />
+     
       <ProductList />
+      <Shop />
     </>
   );
 };
