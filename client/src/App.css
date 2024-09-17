@@ -1,25 +1,5 @@
 /* App.css */
 
-.Category{
-  width: 20%; /* Adjust the width as needed */
-  float: right;
-  box-sizing: border-box;
-  padding: 10px;
-}
-.ProductList{
-  width: 80%;
-  margin-right: 20px;
-
-
-
-}
-
-/* Clear the float to prevent layout issues */
-.clearfix:after {
-  content: '';
-  display: table;
-  clear: both;
-}
 
 
 
@@ -62,5 +42,27 @@
   }
 }
 
+/* .Category{
+  width: 20%; 
+  float: right;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.ProductList{
+  width: 80%;
+  margin-right: 20px;
 
 
+
+}
+
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+
+
+ */

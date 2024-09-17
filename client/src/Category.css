@@ -9,7 +9,7 @@
      border-radius: 8px;
      margin: 16px;
      padding: 16px;
-     width: 300px;
+     width: 200px;
      position: relative;
     
   
@@ -23,7 +23,7 @@
     }
   
     .category-name {
-        /* position: absolute; */
+        
         bottom: 16px;
       
        
