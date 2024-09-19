@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import '../NewsletterModal.css';
 
 const NewsletterModal = ({ onClose }) => {
@@ -31,7 +30,7 @@ const NewsletterModal = ({ onClose }) => {
                            
                        
                         />
-                         <Link to="/join">Join</Link>
+                     
                         <button type="submit" className="join-link">Join</button>
                     </form>
                 </div>

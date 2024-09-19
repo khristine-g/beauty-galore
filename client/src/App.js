@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import Checkout from './components/Checkout';
 import ProductInfo from './components/ProductInfo';
 import AllProducts from './components/AllProducts';
+import OrderConfirmation from './components/OrderConfirmation';
 
 import './App.css';
 
@@ -78,6 +79,7 @@ function App() {
           />} />
           <Route path="/product-info" element={<ProductInfo />} />
           <Route path="/checkout" element={<Checkout cart={cart} />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/all-products" element={<AllProducts />} />
         </Routes>
       </div>

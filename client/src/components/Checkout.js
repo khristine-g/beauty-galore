@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../Checkout.css';
 
 const Checkout = ({ cart, onPlaceOrder }) => {
@@ -12,6 +13,7 @@ const Checkout = ({ cart, onPlaceOrder }) => {
     zipCode: '',
     phoneNumber: '',
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log('Rendering Checkout component');
@@ -30,6 +32,7 @@ const Checkout = ({ cart, onPlaceOrder }) => {
       return cart.reduce((total, product) => total + product.price * product.quantity, 0);
     };
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInfo((prevInfo) => ({
@@ -40,19 +43,32 @@ const Checkout = ({ cart, onPlaceOrder }) => {
 
   const handlePlaceOrder = async () => {
     if (userInfo.firstName && userInfo.lastName && userInfo.email && userInfo.address) {
-      await onPlaceOrder(userInfo);
+      // Simulate placing the order and receiving an order number and date
+      const orderNumber = Math.floor(Math.random() * 1000000000);
+      const date = new Date().toLocaleDateString();
+      const total = calculateTotalPrice();
+      const paymentMethod = 'Credit Card';  // Example payment method
+
+      const orderDetails = cart.map((item) => ({
+        id: item.id,
+        productName: item.name,
+        price: item.price,
+      }));
+
+      // Navigate to OrderConfirmation component with state
+      navigate('/order-confirmation', {
+        state: {
+          orderNumber,
+          date,
+          total,
+          paymentMethod,
+          orderDetails,
+        },
+      });
     } else {
       console.error('Please fill in all required fields.');
     }
   };
-
-  if (!cart || cart.length === 0) {
-    return (
-      <div className="checkout">
-        <p>Your cart is empty. Add some items to proceed to checkout.</p>
-      </div>
-    );
-  }
 
   return (
     <div className="checkout-container">
