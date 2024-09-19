@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+
 import '../Navbar.css';
 
 const Navbar = ({ onSearch }) => {
@@ -32,6 +34,8 @@ const Navbar = ({ onSearch }) => {
   return (
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-brand">SERENE BEAUTY</div>
+
+     
       <ul className="navbar-links">
         <li><Link to="/">HOME</Link></li>
         <li><Link to="/cart">CART</Link></li>
@@ -41,19 +45,20 @@ const Navbar = ({ onSearch }) => {
       
         
       </ul>
-      <form className="form-inline my-2 my-lg-0" onSubmit={handleSearch}>
+      <form className="search-form" onSubmit={handleSearch}>
+        <div className="search-container">
           <input
-           className="form-control mr-sm-2"
+            className="search-input"
             type="search"
-           placeholder="Search"
+            placeholder="Search"
             aria-label="Search"
-           value={searchInput}
+            value={searchInput}
             onChange={handleInputChange}
           />
-         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
+          <FaSearch className="search-icon" onClick={handleSearch} />
+        </div>
+      </form>
+      
         </nav>
     
   );

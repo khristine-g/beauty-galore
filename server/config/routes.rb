@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index]
 
   post '/auth/login', to: 'authentication#login'
+  get 'products/search', to: 'products#search'
 end
 
 

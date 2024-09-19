@@ -12,7 +12,9 @@
 # app/controllers/products_controller.rb
 class ProductsController < ApplicationController
   def index
-    if params[:category_id].present?
+    if params[:search].present?
+      products = Product.where('name LIKE ?', "%#{params[:search]}%")
+    elsif params[:category_id].present?
       category = Category.find(params[:category_id])
       products = category.products
     else

@@ -48,16 +48,19 @@
   .shop-link {
     display: inline-block;
     font-size: 1rem;
-  color: black;
+  color: white;
     text-decoration: underline;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
+    background-color: #ff4081; 
   }
   
   .shop-link:hover {
-    background-color: #ff4081; /* Pink background on hover */
-    color: white;
+  
+    color: black;
     transition: background-color 0.3s ease-in-out;
+    background-color: #ee105a; 
+    
   }
   

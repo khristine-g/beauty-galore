@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import '../Category.css';
 
 function Category({ onSelectCategory }) {
   const [categories, setCategories] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -33,6 +34,10 @@ function Category({ onSelectCategory }) {
       return newIndex;
     });
   }, [categories.length]);
+  const handleSelectCategory = (categoryId) => {
+    onSelectCategory(categoryId); // Set selected category
+    navigate('/products'); // Navigate to products page
+  };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -58,7 +63,7 @@ function Category({ onSelectCategory }) {
               <div
                 key={category.id}
                 className="category-card"
-                onClick={() => onSelectCategory(category.id)}
+                onClick={() => handleSelectCategory(category.id)}
               >
                 <div className="category-img-card">
                   <img className="category-img" src={category.image} alt={category.name} />
@@ -76,10 +81,7 @@ function Category({ onSelectCategory }) {
   );
 }
 
-// Add PropTypes validation
-Category.propTypes = {
-  onSelectCategory: PropTypes.func.isRequired,
-};
+
 
 export default Category;
 
