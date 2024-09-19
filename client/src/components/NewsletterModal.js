@@ -15,11 +15,11 @@ const NewsletterModal = ({ onClose }) => {
             <div className="modal-content">
                 <button className="close-button" onClick={onClose}>×</button>
                 <div className="modal-image">
-                    <img src="https://t4.ftcdn.net/jpg/05/39/14/79/360_F_539147967_q0oRyxFC266XAKNrnJfQ7e6o4kPblROE.jpg" alt="Newsletter" />
+                    <img src=" https://www.advancedcosmeceuticals.com.au/cdn/shop/articles/IWD_2024_AC_Skin_Journal_banner_2200x880_df5a52ae-adfe-4b9a-9b12-9fc2571648fa_2500x.jpg?v=1709506912" alt="Newsletter" />
                 </div>
                 <div className="modal-text">
-                    <h2>Sign Up to Our Newsletter</h2>
-                    <p>Be the first to get the latest news about trends, promotions, and much more!</p>
+                    <h2 className='modal-header'>Sign Up to Our Newsletter</h2>
+                    <p className='modal-paragraph'>Be the first to get the latest news about trends, promotions, and much more!</p>
                     <form onSubmit={handleSubmit}>
                         <input
                             type="email"
@@ -27,11 +27,8 @@ const NewsletterModal = ({ onClose }) => {
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
                             required
-                           
-                       
                         />
-                     
-                        <button type="submit" className="join-link">Join</button>
+                        <button type="submit" className="join-button">Join</button>
                     </form>
                 </div>
             </div>

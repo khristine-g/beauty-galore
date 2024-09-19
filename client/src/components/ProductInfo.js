@@ -47,7 +47,7 @@ function ProductInfo({ onAddToCart }) {
           <button className="cart-btn" onClick={handleAddToCart}>ADD TO CART</button>
         </div>
       </div>
-      <button className='info-back-btn' onClick={() => navigate(-1)}>back</button>
+      <button className='info-back-btn' onClick={() => navigate(-1)}>&lt;</button>
     </div>
   );
 }
