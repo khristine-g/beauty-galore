@@ -32,6 +32,15 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    if (newQuantity < 1) return; // Prevent reducing quantity below 1
+    const updatedCart = cart.map(product =>
+      product.id === productId ? { ...product, quantity: newQuantity } : product
+    );
+    setCart(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  };
+
   const handleSearch = (searchQuery) => {
     console.log('Search Query:', searchQuery);
   };
@@ -41,30 +50,32 @@ function App() {
       <Navbar onSearch={handleSearch} />
       <div className="App">
         <Routes>
-        <Route 
-  path="/" 
-  element={<Home onSelectCategory={handleSelectCategory} />} 
-/>
-
-<Route
-  path="/products"
-  element={
-    <ProductList
-      selectedCategory={selectedCategory}
-      cart={cart}
-      setCart={setCart}
-      removeFromCart={removeFromCart}
-    />
-  }
-/>
-
+          <Route 
+            path="/" 
+            element={<Home onSelectCategory={handleSelectCategory} />} 
+          />
+          <Route
+            path="/products"
+            element={
+              <ProductList
+                selectedCategory={selectedCategory}
+                cart={cart}
+                setCart={setCart}
+                removeFromCart={removeFromCart}
+              />
+            }
+          />
           <Route
             path="/categories"
             element={<Category onSelectCategory={handleSelectCategory} />}
           />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/cart" element={<Cart cart={cart} onRemoveFromCart={removeFromCart} />} />
+          <Route path="/cart" element={<Cart 
+            cart={cart} 
+            onRemoveFromCart={removeFromCart} 
+            onUpdateQuantity={handleUpdateQuantity} 
+          />} />
           <Route path="/product-info" element={<ProductInfo />} />
           <Route path="/checkout" element={<Checkout cart={cart} />} />
           <Route path="/all-products" element={<AllProducts />} />

@@ -3,10 +3,14 @@ import '../Checkout.css';
 
 const Checkout = ({ cart, onPlaceOrder }) => {
   const [userInfo, setUserInfo] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     address: '',
-    // Add other user information fields as needed
+    country: '',
+    town: '',
+    zipCode: '',
+    phoneNumber: '',
   });
 
   useEffect(() => {
@@ -18,13 +22,13 @@ const Checkout = ({ cart, onPlaceOrder }) => {
     console.log('UserInfo:', userInfo);
   }, [userInfo]);
 
-  const calculateTotalPrice = () => {
-    if (!cart || !Array.isArray(cart)) {
-      return 0;
-    }
-
-    return cart.reduce((total, product) => total + product.price * product.quantity, 0);
-  };
+ 
+    const calculateTotalPrice = () => {
+      if (!cart || !Array.isArray(cart)) {
+        return 0;
+      }
+      return cart.reduce((total, product) => total + product.price * product.quantity, 0);
+    };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,11 +39,8 @@ const Checkout = ({ cart, onPlaceOrder }) => {
   };
 
   const handlePlaceOrder = async () => {
-    // Validate user information before placing the order
-    if (userInfo.name && userInfo.email && userInfo.address) {
-      // Call the onPlaceOrder prop to submit the order
+    if (userInfo.firstName && userInfo.lastName && userInfo.email && userInfo.address) {
       await onPlaceOrder(userInfo);
-      // Redirect or perform other actions after successful order placement
     } else {
       console.error('Please fill in all required fields.');
     }
@@ -48,53 +49,123 @@ const Checkout = ({ cart, onPlaceOrder }) => {
   if (!cart || cart.length === 0) {
     return (
       <div className="checkout">
-        {/* <p>Your cart is empty. Add some items to proceed to checkout.</p> */}
+        <p>Your cart is empty. Add some items to proceed to checkout.</p>
       </div>
     );
   }
 
   return (
-    <>
-    <div className="checkout">
-      <h2 style={{color:'#f08080'}}>Checkout</h2>
-      {/* Display cart items and total price */}
-      <h3 style={{color:'green'}}>Cart Summary:</h3>
-      <ul className='check-list'>
-        {cart.map((product) => (
-          <li key={product.id}>
-            <img className='check-img' src={product.image} alt={product.name} />
-            <h4 className='check-name'>{product.name}</h4>
-            <p className='check-price'>${product.price}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="checkout-container">
+      <div className="billing-details">
+        <h2>Billing Details</h2>
+        <form className='check-form'>
+          <label htmlFor="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" value={userInfo.firstName} onChange={handleChange} required />
 
-      <p className='total-price'> Total Price: ${calculateTotalPrice()}</p>
+          <label htmlFor="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" value={userInfo.lastName} onChange={handleChange} required />
 
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" value={userInfo.email} onChange={handleChange} required />
+
+          <label htmlFor="address">Street Address:</label>
+          <textarea id="address" name="address" value={userInfo.address} onChange={handleChange} required />
+
+          <label htmlFor="country">Country:</label>
+          <select id="country" name="country" value={userInfo.country} onChange={handleChange} required>
+            <option value="">Select your country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            {/* Add more countries as needed */}
+          </select>
+
+          <label htmlFor="town">Town/City:</label>
+          <input type="text" id="town" name="town" value={userInfo.town} onChange={handleChange} required />
+
+          <label htmlFor="zipCode">ZIP Code:</label>
+          <input type="text" id="zipCode" name="zipCode" value={userInfo.zipCode} onChange={handleChange} required />
+
+          <label htmlFor="phoneNumber">Phone Number:</label>
+          <input type="text" id="phoneNumber" name="phoneNumber" value={userInfo.phoneNumber} onChange={handleChange} required />
+
+         
+        </form>
       </div>
 
-      <div>
+      <div className="checkout-summary">
+        <div className="cart-summary">
+          <h2>Checkout Summary</h2>
+          <h3 style={{color:'green'}}>Cart Summary:</h3>
+          <ul className='check-list'>
+            {cart.map((product) => (
+              <li key={product.id}>
+                <img className='check-img' src={product.image} alt={product.name} />
+                <h4 className='check-name'>{product.name}</h4>
+                <p className='check-quantity'>{product.quantity}</p>
 
-      <form className='check-form'>
-        {/* User information input fields */}
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={userInfo.name} onChange={handleChange} required />
+                <p className='check-price'>${product.price}</p>
 
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" value={userInfo.email} onChange={handleChange} required />
+              </li>
+            ))}
+          </ul>
+          <p className='total-price'>Total Price: ${calculateTotalPrice()}</p>
+        </div>
 
-        <label htmlFor="address">Address:</label>
-        <textarea id="address" name="address" value={userInfo.address} onChange={handleChange} required />
+        <div className="payment-details">
+          <h4>Payment Methods</h4>
+          <div className="payment-options">
+            <div>
+              <input type="radio" id="bankTransfer" name="paymentMethod" />
+              <label htmlFor="bankTransfer">Direct bank transfer</label>
+              <p>
+                Make your payment directly into our bank account. Please use your Order ID as the payment reference.
+                Your order will not be shipped until the funds have cleared in our account.
+              </p>
+            </div>
+            <div>
+              <input type="radio" id="checkPayments" name="paymentMethod" />
+              <label htmlFor="checkPayments">Check payments</label>
+              <p>
+                Phasellus sed volutpat orci. Fusce eget lorem mauris, vehicula elementum gravida nec dui.
+                Aenean aliquam varius ipsum, non ultricies tellus sodales eu.
+              </p>
+            </div>
+            <div>
+              <input type="radio" id="cashOnDelivery" name="paymentMethod" />
+              <label htmlFor="cashOnDelivery">Cash on delivery</label>
+              <p>
+                Phasellus sed volutpat orci. Fusce eget lorem mauris, vehicula elementum gravida nec dui.
+                Aenean aliquam varius ipsum, non ultricies tellus sodales eu.
+              </p>
+            </div>
+            <div>
+              <input type="radio" id="paypal" name="paymentMethod" />
+              <label htmlFor="paypal">Paypal</label>
+              <p>
+                Phasellus sed volutpat orci. Fusce eget lorem mauris, vehicula elementum gravida nec dui.
+                Aenean aliquam varius ipsum, non ultricies tellus sodales eu.
+              </p>
+            </div>
+          </div>
 
-        {/* Add other user information fields as needed */}
+          <p className="privacy-notice">
+            Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
+          </p>
 
-        <button type="button" onClick={handlePlaceOrder}>
-          Place Order
-        </button>
-      </form>
+          <button className="checkout-button" onClick={handlePlaceOrder}>Place Order</button>
+        </div>
+      </div>
     </div>
-    </>
   );
 };
 
+
 export default Checkout;
+
+
+
+
+
+
+

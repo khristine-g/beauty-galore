@@ -1,14 +1,15 @@
-// Inside Cart.js
+
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Cart.css';
 
-const Cart = ({ cart, onRemoveFromCart }) => {
+const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
   const calculateTotalPrice = () => {
     if (!cart || !Array.isArray(cart)) {
       return 0;
     }
-
     return cart.reduce((total, product) => total + product.price * product.quantity, 0);
   };
 
@@ -19,23 +20,45 @@ const Cart = ({ cart, onRemoveFromCart }) => {
         <p>Your cart is empty.</p>
       ) : (
         <>
-          <ul className='cart-product'>
-            {cart.map((product) => (
-              <li key={product.id}>
-                <img className='product-img' src={product.image} alt={product.name} />
-                <h4 className='product-name'>{product.name}</h4>
-                <p className='price'>${product.price}</p>
-                <p>Quantity: {product.quantity}</p>
-                <button onClick={() => onRemoveFromCart(product.id)}>Remove</button>
-              </li>
-            ))}
-          </ul>
+          <table className='cart-table'>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((product) => (
+                <tr key={product.id}>
+                  <td>
+                    <img className='cart-img' src={product.image} alt={product.name} />
+                    {product.name}
+                  </td>
+                  <td>${product.price}</td>
+                  <td>
+                    <button onClick={() => onUpdateQuantity(product.id, product.quantity - 1)}>-</button>
+                    {product.quantity}
+                    <button onClick={() => onUpdateQuantity(product.id, product.quantity + 1)}>+</button>
+                  </td>
+                  <td>${(product.price * product.quantity).toFixed(2)}</td>
+                  <td>
+                    <button className="remove-button" onClick={() => onRemoveFromCart(product.id)}>X</button>
+                  </td>
+                </tr>
+              ))}
+              <tr className="total-row">
+                <td colSpan="3">Total</td>
+                <td>${calculateTotalPrice().toFixed(2)}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
 
-          <p className='total-price'>Total Price: ${calculateTotalPrice()}</p>
-
-          {/* Add the checkout button with a Link to the checkout page */}
           <Link to="/checkout">
-            <button className="checkout-button">Checkout</button>
+            <button className="checkout-button">PROCEED TO CHECKOUT</button>
           </Link>
         </>
       )}
@@ -44,4 +67,9 @@ const Cart = ({ cart, onRemoveFromCart }) => {
 };
 
 export default Cart;
+
+
+
+ 
+
 
