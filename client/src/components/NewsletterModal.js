@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../NewsletterModal.css';
 
 const NewsletterModal = ({ onClose }) => {
@@ -27,7 +28,10 @@ const NewsletterModal = ({ onClose }) => {
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
                             required
+                           
+                       
                         />
+                         <Link to="/join">Join</Link>
                         <button type="submit" className="join-link">Join</button>
                     </form>
                 </div>
