@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api do
+    post '/chatbot', to: 'chatbot#respond'
+  end
+
   resources :users, only: [:create]
   resources :categories, only: [:index, :show] do
     resources :products, only: [:index]
@@ -11,16 +15,4 @@ Rails.application.routes.draw do
   get 'products/search', to: 'products#search'
 end
 
-
-
-# Rails.application.routes.draw do
-#   resources :users, only: [:create]
-#   resources :categories, only: [:index]
-#   resources :orders
-#   resources :products, only: [:index]
-
-
-#   post '/auth/login', to: 'authentication#login'
-  
-# end
 
