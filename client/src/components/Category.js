@@ -49,7 +49,7 @@ function Category({ onSelectCategory }) {
 
   return (
     <div className='Category'>
-      <h2 className='category-header'>MOST PREFERRED CATEGORIES</h2>
+      <h2 className='category-header'>SHOP BY CATEGORIES</h2>
       <p>The World's Premium Brands In One Destination.</p>
 
       <div className="carousel-container">

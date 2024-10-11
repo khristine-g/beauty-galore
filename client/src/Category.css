@@ -33,15 +33,21 @@
   box-sizing: border-box;
 }
 
-/* Card that contains the category image */
 .category-img-card {
   border: 1px solid #ddd;
-  border-radius: 8px;
   padding: 8px;
-  width: 400px;
+  width: 300px;
   height: 400px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
 }
+
+.category-img-card:hover {
+  transform: scale(1.05); /* Scale the card to 105% of its original size */
+  z-index: 1; /* Bring the card to the front */
+}
+
+
 
 .category-img {
   max-width: 100%;
@@ -49,6 +55,7 @@
   border-radius: 8px;
   padding: 20px;
 }
+
 
 .category-details {
   margin-top: 12px;

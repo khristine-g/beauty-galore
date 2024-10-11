@@ -16,8 +16,8 @@
   }
   
   .shop-image {
-    width: 80%;
-    height: 600px;
+    width: 100vw;
+    height: 80vh;
     object-fit: cover;
     border-radius: 10px; /* Optional: Rounded corners for the image */
   }

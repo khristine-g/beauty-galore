@@ -43,9 +43,9 @@
 .browse-btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #ff4081;
+  background-color: white;
   border: none;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 

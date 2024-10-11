@@ -7,7 +7,7 @@ function Shop() {
     <div className="shop-container">
       <div className="shop-image-wrapper">
         <img
-          src="https://tigerlogistics.in/blogs/wp-content/uploads/2024/03/Cosmetics-Import.jpeg"
+          src="https://st.depositphotos.com/62628780/61584/i/450/depositphotos_615848848-stock-photo-skincare-beauty-women-product-face.jpg"
           alt="Beauty Products"
           className="shop-image"
         />

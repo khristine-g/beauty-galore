@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList';
 import Category from './Category';
 import Shop from './Shop';
-import NewsletterModal from './NewsletterModal'; // Import the modal component
-import Chatbot from './Chatbot';
+import NewsletterModal from './NewsletterModal'; 
+import Marquee from './Marquee';
+// import Chatbot from './Chatbot';
 import '../Home.css';
 
 const Home = ({ onSelectCategory }) => {
@@ -49,13 +50,14 @@ const Home = ({ onSelectCategory }) => {
             <div className="slide-content">
               <h2>{slide.text}</h2>
               <p>Browse our collection of skincare essentials, curated for your best self.</p>
-              <button className="browse-btn">BROWSE MORE</button>
+              <button className="browse-btn">Browse more</button>
             </div>
           </div>
         ))}
       </div>
 
-     <Chatbot />
+     {/* <Chatbot /> */}
+     <Marquee />
       <Category onSelectCategory={onSelectCategory} />
       <ProductList />
       <Shop />
