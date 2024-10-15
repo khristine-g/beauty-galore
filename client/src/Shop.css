@@ -10,22 +10,25 @@
   
   .shop-image-wrapper {
     position: relative;
+    border-radius: 60px;
     width: 100%;
  
     height: auto;
   }
   
   .shop-image {
-    width: 100vw;
-    height: 80vh;
+    width: 80vw;
+    height: 70vh;
+
     object-fit: cover;
+    padding: 10px;
     border-radius: 10px; /* Optional: Rounded corners for the image */
   }
   
   .shop-content {
     position: absolute;
-    top: 50%;
-    left: 70%;
+    top: 80%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: black;

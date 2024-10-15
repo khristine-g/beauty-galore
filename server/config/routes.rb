@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show] do
     resources :products, only: [:index]
   end
-  resources :orders, only: [:new, :create]
+
+  resources :trending, only: [:index] # Add this line for direct access
 
   resources :products, only: [:index]
-
+  
   post '/auth/login', to: 'authentication#login'
   get 'products/search', to: 'products#search'
 end

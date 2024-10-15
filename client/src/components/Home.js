@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList';
 import Category from './Category';
 import Shop from './Shop';
+import TopSellers from './ TopSellers';
+import TrendingProducts from './TrendingProducts';
 import NewsletterModal from './NewsletterModal'; 
 import Marquee from './Marquee';
+import Footer from './Footer';
 // import Chatbot from './Chatbot';
 import '../Home.css';
 
@@ -61,6 +64,10 @@ const Home = ({ onSelectCategory }) => {
       <Category onSelectCategory={onSelectCategory} />
       <ProductList />
       <Shop />
+      <TopSellers />
+      <TrendingProducts />
+      <Footer />
+
 
       {isModalOpen && <NewsletterModal onClose={closeModal} />} {/* Render the modal */}
     </>

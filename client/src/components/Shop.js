@@ -7,7 +7,7 @@ function Shop() {
     <div className="shop-container">
       <div className="shop-image-wrapper">
         <img
-          src="https://st.depositphotos.com/62628780/61584/i/450/depositphotos_615848848-stock-photo-skincare-beauty-women-product-face.jpg"
+          src="https://miro.medium.com/v2/resize:fit:1400/0*bJVKX3YQMQmdSGzn"
           alt="Beauty Products"
           className="shop-image"
         />

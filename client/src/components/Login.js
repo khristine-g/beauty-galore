@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import '../Login.css';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState(null);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -39,11 +35,6 @@ const Login = () => {
 
         localStorage.setItem('jwtToken', token);
 
-        // Display a successful login alert
-        // window.alert('Login successful!');
-
-        // Redirect to the homepage
-        console.log('Navigating to /home');
         navigate('/');
       } else {
         console.error('Login failed:', response.status, response.statusText);
@@ -54,36 +45,43 @@ const Login = () => {
   };
 
   return (
-    <div className="login-form-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-group">
-          <label htmlFor="email">Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        
-        <button type="submit" className="btn btn-primary" >Login
-          
-        </button> 
-      </form>
+    <div className="login-container">
+      <div className="login-welcome">
+        <h1>Welcome Back</h1>
+        <p>Log in to continue your beauty journey with Serene Beauty.</p>
+      </div>
+      <div className="login-form-container">
+        <form onSubmit={handleSubmit} className="login-form">
+          <h2>Login to Your Account</h2>
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={handlePasswordChange}
+              required
+            />
+          </div>
+          <button type="submit" className="login-btn">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
