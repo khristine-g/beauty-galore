@@ -13,6 +13,7 @@
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: none; /* No shadow by default */
+
 }
 
 /* Navbar background color and shadow when scrolled */
@@ -78,6 +79,7 @@
 .search-container {
   position: relative;
   width: 300px; /* Adjust search bar size */
+  margin-right: 40px;
 }
 
 .search-input {
