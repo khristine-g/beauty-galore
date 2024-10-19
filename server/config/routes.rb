@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   
   post '/auth/login', to: 'authentication#login'
   get 'products/search', to: 'products#search'
+
 end
 
 

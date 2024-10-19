@@ -45,8 +45,8 @@
   padding: 10px 20px;
   height: 50px;
   width: auto;
-  border-radius: 20px;
-  background-color: #ff4081; 
+  border-radius: 8px;
+  background-color: white; 
   border: none;
   color: black;
   cursor: pointer;

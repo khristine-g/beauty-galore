@@ -17,7 +17,7 @@ function Shop() {
             Get styled with the high-fashion products and transform yourself.
           </p>
           <Link className="shop-link" to="/all-products">
-            SHOP NOW
+            SHOP ALL PRODUCTS
           </Link>
         </div>
       </div>

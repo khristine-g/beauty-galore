@@ -1,5 +1,6 @@
 .TrendingProducts {
     margin-top: 100px;
+   
   }
   
   .carousel-container {
@@ -7,6 +8,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-bottom: 100px;
   }
   
   .carousel-track-container {

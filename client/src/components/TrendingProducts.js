@@ -26,6 +26,8 @@ function TrendingProducts({ cart, setCart, removeFromCart }) {
     navigate('/product-info', { state: { product } });
   };
 
+  
+
   const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex < trendingProducts.length - 4 ? prevIndex + 1 : 0;
@@ -78,6 +80,7 @@ function TrendingProducts({ cart, setCart, removeFromCart }) {
                         <span key={index} className="star">&#9733;</span>
                       ))}
                     </div>
+                   
                   </div>
                 </div>
               ))}
@@ -86,9 +89,7 @@ function TrendingProducts({ cart, setCart, removeFromCart }) {
           <button className="next-btn" onClick={handleNext}>&gt;</button>
         </div>
       </div>
-      {/* <TrendingProducts cart={cart} setCart={setCart} removeFromCart={removeFromCart} /> */}
     </div>
-    
   );
 }
 

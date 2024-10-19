@@ -1,15 +1,3 @@
-# app/controllers/products_controller.rb
-# class ProductsController < ApplicationController
-#     def index
-#       @products = Product.all
-#       render json: @products
-#     end
-
-   
-#   end
-
-# app/controllers/products_controller.rb
-# app/controllers/products_controller.rb
 class ProductsController < ApplicationController
   def index
     if params[:search].present?
@@ -23,4 +11,15 @@ class ProductsController < ApplicationController
 
     render json: products
   end
+
+  def search
+    if params[:search].present?
+      @products = Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+
+      render json: @products
+    else
+      render json: [] # Return an empty array if no search term is provided
+    end
+  end
 end
+

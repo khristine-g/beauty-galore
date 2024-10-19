@@ -58,7 +58,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #00aaff; /* Accent color for hover underline */
+  background:#ff4081; /* Accent color for hover underline */
   transition: width 0.3s;
   position: absolute;
   left: 0;
@@ -70,7 +70,7 @@
 }
 
 .navbar-links a:hover {
-  color: #00aaff; /* Accent color on hover */
+  color: #ff4081; /* Accent color on hover */
 }
 
 /* Search Container */

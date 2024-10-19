@@ -44,7 +44,7 @@ const Footer = () => {
         <h2>Contact</h2>
         <p><MdPhone /> (212) 555-1234</p>
         <p><IoMdMail /> info@fashionshop.com</p>
-        <p><RiMapPinLine /> 1234 Fashion Street, Suite 567, New York, NY 10001</p>
+        <p><RiMapPinLine /> 1234 Fashion Street, Suite 567, Nairobi, NB 10001</p>
         <a href="/get-direction" className="get-direction">Get direction</a>
       </div>
       <div className="footer-section newsletter-section">
