@@ -60,6 +60,10 @@
   font-weight: bold;
   background-color: #e9ecef;
 }
+.checkout-link{
+
+  text-decoration: none;
+}
 
 .checkout-button {
   display: block;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList';
 import Category from './Category';
 import Shop from './Shop';
-import TopSellers from './ TopSellers';
+import TopSellers from './ Offers';
 import TrendingProducts from './TrendingProducts';
 import NewsletterModal from './NewsletterModal'; 
 import Marquee from './Marquee';
@@ -64,7 +64,7 @@ const Home = ({ onSelectCategory }) => {
       <Category onSelectCategory={onSelectCategory} />
       <ProductList />
       <Shop />
-      <TopSellers />
+      < TopSellers/>
       <TrendingProducts />
       <Footer />
 

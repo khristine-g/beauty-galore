@@ -60,8 +60,9 @@
 }
 
 .category-name {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+font-family: Arial, Helvetica, sans-serif;
   margin: 8px 0;
+ 
 }
 
 .prev-btn, .next-btn {

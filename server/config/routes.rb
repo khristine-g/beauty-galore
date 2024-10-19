@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :trending, only: [:index] # Add this line for direct access
+  resources :offers, only: [:index, :show]
 
   resources :products, only: [:index]
   

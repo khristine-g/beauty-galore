@@ -29,6 +29,7 @@
   text-transform: uppercase; /* All caps for a modern feel */
   letter-spacing: 1px; /* Slight letter spacing */
   font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
+  margin-left: 20px;
 }
 
 /* Navbar Links */

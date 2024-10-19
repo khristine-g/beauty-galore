@@ -57,7 +57,7 @@ const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
             </tbody>
           </table>
 
-          <Link to="/checkout">
+          <Link className='checkout-link' to="/checkout">
             <button className="checkout-button">PROCEED TO CHECKOUT</button>
           </Link>
         </>

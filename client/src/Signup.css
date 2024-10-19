@@ -15,7 +15,9 @@
   align-items: center; /* Center content horizontally */
   text-align: center; /* Center text */
   padding: 20px; /* Add padding for spacing */
-  background-color: black;
+  background-color:  #f0f0f0;
+  margin: 20px;
+  border-radius: 10px;
 }
 
 .signup-welcome h1 {
@@ -24,7 +26,7 @@
   font-weight: bold; /* Bold title */
   text-transform: uppercase; /* Uppercase letters */
   margin-bottom: 20px; /* Space below the title */
-  color: #ccc;
+  color: black;
 }
 
 .signup-welcome p {
