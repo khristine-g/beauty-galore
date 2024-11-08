@@ -21,7 +21,7 @@ const Home = ({ onSelectCategory }) => {
       text: 'Experience the magic of skincare',
     },
     {
-      image: 'https://cureaquagel.com/cdn/shop/articles/November-Is-National-Health-Skin-Month-Its-Time-To-Promote-Good-Skin-Care-Habits.jpg?v=1660056045',
+      image: 'https://media.istockphoto.com/id/1271527412/photo/beautiful-girl-with-curly-hairstyle.jpg?s=612x612&w=0&k=20&c=RygxTaSW8t8A5cPdXBPqStdu1TfJDvBaxbZEWNLVprg=',
       text: 'Enhance your beauty routine with friends',
     },
   ];

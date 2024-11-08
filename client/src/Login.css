@@ -15,7 +15,7 @@
   align-items: center;
   text-align: center;
   padding: 20px;
-  background-color: #000;
+  background-color:  #f0f0f0;
   margin: 20px;
   border-radius: 10px;
 }
@@ -26,7 +26,7 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 20px;
-  color: #ccc;
+  color: black;
 }
 
 .login-welcome p {

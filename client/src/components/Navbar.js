@@ -52,7 +52,7 @@ const Navbar = ({ onSearch }) => {
 
     return (
         <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
-            <div className="navbar-brand">SERENE BEAUTY</div>
+            <div className="navbar-brand">TRUE BEAUTY</div>
 
             {/* Hamburger Menu Icon for mobile */}
             <div className="navbar-toggle" onClick={handleToggle}>

@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-section">
-        <h2>Serene Beauty</h2>
+        <h2>True Beauty</h2>
         <p>Lorem quas utamur delicata qui, vix ei prima mentitum omnesque. Duo corrumpit cotidieque ne.</p>
         <div className="social-media-icons">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
@@ -43,8 +43,8 @@ const Footer = () => {
       <div className="footer-section contact-section">
         <h2>Contact</h2>
         <p><MdPhone /> (212) 555-1234</p>
-        <p><IoMdMail /> info@fashionshop.com</p>
-        <p><RiMapPinLine /> 1234 Fashion Street, Suite 567, Nairobi, NB 10001</p>
+        <p><IoMdMail /> info@truebeautyshop.com</p>
+        <p><RiMapPinLine /> 1234 Beauty Street, Suite 567, Nairobi, NB 10001</p>
         <a href="/get-direction" className="get-direction">Get direction</a>
       </div>
       <div className="footer-section newsletter-section">

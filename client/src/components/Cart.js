@@ -1,6 +1,4 @@
-
-
-
+// Cart.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Cart.css';
@@ -68,8 +66,5 @@ const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
 
 export default Cart;
 
-
-
- 
 
 
