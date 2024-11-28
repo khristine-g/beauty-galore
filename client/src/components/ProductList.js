@@ -1,19 +1,34 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../ProductList.css';
-import ProductInfo from './ProductInfo';
 
-function ProductList({ selectedCategory, cart, setCart, removeFromCart }) {
+function ProductList() {
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Fetch categories
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/categories');
+        const data = await response.json();
+        setCategories(data);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    // Fetch products
     const fetchProducts = async () => {
       try {
-        const url = selectedCategory 
-          ? `http://localhost:3000/categories/${selectedCategory}/products` 
+        const url = selectedCategory
+          ? `http://localhost:3000/categories/${selectedCategory}/products`
           : 'http://localhost:3000/products';
         const response = await fetch(url);
         const data = await response.json();
@@ -31,80 +46,66 @@ function ProductList({ selectedCategory, cart, setCart, removeFromCart }) {
     navigate('/product-info', { state: { product } });
   };
 
-  const handleGoBack = () => {
-    setSelectedProduct(null);
-  };
-
-  const handleNext = useCallback(() => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex < products.length - 4 ? prevIndex + 1 : 0;
-      return newIndex;
-    });
-  }, [products.length]);
-
-  const handlePrev = useCallback(() => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex > 0 ? prevIndex - 1 : products.length - 4;
-      return newIndex;
-    });
-  }, [products.length]);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      handleNext();
-    }, 3000); // Adjust the duration (3000ms = 3s) for smooth movement
-
-    return () => clearInterval(intervalId);
-  }, [handleNext]);
-
   return (
-    <div className='ProductList'>
-      <div>
-        {selectedProduct ? (
-          <ProductInfo product={selectedProduct} onGoBack={handleGoBack} />
-        ) : (
-          <>
-            <h2 className='product-header'>MOST POPULAR PRODUCTS</h2>
-            <p>The World's Premium Brands In One Destination.</p>
+    
+    <div className="popular-product-list-container">
 
-            <div className="carousel-container">
-              <button className="prev-btn" onClick={handlePrev}>&lt;</button>
-              <div className="carousel-track-container">
-                <div
-                  className="carousel-track"
-                  style={{ transform: `translateX(-${currentIndex * 25}%)` }}
-                >
-                  {products.map((product) => (
-                    <div
-                      key={product.id}
-                      className="product-card"
-                      onClick={() => handleSelectProduct(product.id)}
-                    >
-                      <div className="product-img-card">
-                        <img className="product-img" src={product.image} alt={product.name} />
-                      </div>
-                      <div className="product-details">
-                        <h4 className="product-name">{product.name}</h4>
-                        <p className="price">${product.price}</p>
-                        <div className="product-rating">
-                          {[...Array(5)].map((_, index) => (
-                            <span key={index} className="star">&#9733;</span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <button className="next-btn" onClick={handleNext}>&gt;</button>
+   
+      <h2 className="popular-product-header">MOST POPULAR PRODUCTS</h2>
+      <p className="product-subtext">The World's Premium Brands In One Destination.</p>
+
+      {/* Category Buttons */}
+      <div className="popular-category-buttons">
+        <button
+          className={`popular-category-button ${!selectedCategory ? 'active' : ''}`}
+          onClick={() => setSelectedCategory(null)}
+        >
+          All
+        </button>
+        {categories.map((category) => (
+          <button
+            key={category.id}
+            className={`popular-category-button ${
+              selectedCategory === category.id ? 'active' : ''
+            }`}
+            onClick={() => setSelectedCategory(category.id)}
+          >
+            {category.name}
+          </button>
+        ))}
+      </div>
+
+      <div className="popular-product-grid">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="popular-product-card"
+            onClick={() => handleSelectProduct(product.id)}
+          >
+            <div className="popular-product-img-card">
+              <img
+                className="popular-product-img"
+                src={product.image}
+                alt={product.name}
+              />
             </div>
-          </>
-        )}
+            <div className="popular-product-details">
+              <h6 className="popular-product-name">{product.name}</h6>
+              <p className="price">${product.price}</p>
+              <div className="popular-product-rating">
+                {[...Array(5)].map((_, index) => (
+                  <span key={index} className="star">
+                    &#9733;
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
+   
   );
 }
 
 export default ProductList;
-
-

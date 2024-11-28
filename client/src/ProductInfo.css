@@ -1,44 +1,80 @@
 .product-info {
   display: flex;
-  flex-direction: row; /* Default to row on larger screens */
-  justify-content: center; /* Center content */
-  align-items: flex-start; /* Align items to the top */
-  margin-top: 50px; /* Adjust margin for spacing */
+  flex-direction: row; /* Side-by-side layout */
+  justify-content: center; /* Center the layout horizontally */
+  align-items: center; /* Align content vertically */
+  min-height: 100vh; /* Full viewport height for centering */
+  background-color: #f9f9f9; /* Light background for contrast */
+  gap: 40px; /* Space between the image and details */
+  padding: 20px; /* Add padding for better spacing */
 }
 
 .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 400px; /* Set width for the card */
-  margin-right: 20px; /* Space between image and info */
+  flex: 1; /* Allow the image to take up space proportionally */
+  max-width: 500px; /* Restrict maximum width of the card */
+  background: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .product-img {
   width: 100%; /* Responsive image */
   height: auto; /* Maintain aspect ratio */
-  object-fit: cover; /* Ensure the image covers the area */
+  border-radius: 12px;
+  object-fit: cover; /* Ensure the image fills the area */
 }
 
-.card-body {
-  padding: 16px;
+.product-details {
+  flex: 1; /* Allow the details to take up space proportionally */
+  display: flex;
+  flex-direction: column; /* Stack details vertically */
+  justify-content: center; /* Center details vertically */
+  max-width: 500px; /* Restrict maximum width of details */
 }
 
 .card-title {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
 }
 
 .price {
-  font-weight: bold;
-  color: green;
-  margin-bottom: 20px; /* Space below price */
+  font-size: 1rem;
+  font-weight: 700;
+  color: black; /* Eye-catching price color */
+  margin-bottom: 20px;
 }
 
 .description {
-  margin-top: 8px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  margin-bottom: 20px; /* Space below description */
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: justify; /* Improve readability */
+}
+
+.cart-btn {
+  background-color: black; /* Keep the black button */
+  color: white;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 30px; /* Rounded button */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px; /* Restrict button width */
+  margin-top: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cart-btn:hover {
+  background-color: #333; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
 .info-back-btn {
@@ -49,27 +85,25 @@
   cursor: pointer;
   width: 50px;
   height: 40px;
-  margin: 10px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
 }
 
-.cart-btn {
-  width: 60%; /* Full width for button */
-  background-color: black;
-  color: white;
-  height: 50px;
+.info-back-btn:hover {
+  background-color: #555;
 }
 
-/* Media queries for responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
   .product-info {
-    flex-direction: column; /* Stack items vertically on small screens */
-    align-items: center; /* Center items */
+    flex-direction: column; /* Stack image and details vertically */
+    padding: 10px;
+    gap: 20px;
   }
 
-  .card {
-    margin-right: 0; /* Remove margin on small screens */
-    width: 90%; /* Full width with some padding */
-    margin-bottom: 20px; /* Space below the card */
+  .card,
+  .product-details {
+    max-width: 100%; /* Full width on smaller screens */
   }
 }
-

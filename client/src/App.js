@@ -10,12 +10,14 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Checkout from './components/Checkout';
 import ProductInfo from './components/ProductInfo';
+import useScrollAnimation from './components/useScrollAnimation';
 
 import AllProducts from './components/AllProducts';
 import OrderConfirmation from './components/OrderConfirmation';
 import './App.css';
 
 function App() {
+  useScrollAnimation(); 
   const [cart, setCart] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchResults, setSearchResults] = useState([]);

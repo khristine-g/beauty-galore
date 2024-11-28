@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import { FaSearch, FaBars, FaTimes } from 'react-icons/fa'; // Import icons
+import { FaSearch, FaBars, FaTimes,  FaShoppingBag } from 'react-icons/fa'; // Import icons
 import '../Navbar.css';
 
 const Navbar = ({ onSearch }) => {
@@ -19,7 +19,6 @@ const Navbar = ({ onSearch }) => {
         try {
             const response = await fetch(`http://localhost:3000/products/search?search=${encodeURIComponent(searchInput)}`);
 
-            // Check if the response is okay
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.statusText}`);
             }
@@ -30,7 +29,7 @@ const Navbar = ({ onSearch }) => {
             setMenuOpen(false); // Close the menu after searching
         } catch (error) {
             console.error('Error fetching search results:', error);
-            alert('Error fetching search results. Please try again.'); // Optional: notify user
+            alert('Error fetching search results. Please try again.');
         }
     };
 
@@ -51,12 +50,15 @@ const Navbar = ({ onSearch }) => {
     }, []);
 
     return (
-        <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
-            <div className="navbar-brand">TRUE BEAUTY</div>
+        <nav className={`beauty-navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+            <div className="beauty-navbar-brand">
+                <FaShoppingBag /> {/* Logo Icon */}
+                TRUE BEAUTY
+            </div>
 
             {/* Hamburger Menu Icon for mobile */}
             <div className="navbar-toggle" onClick={handleToggle}>
-                {menuOpen ? <FaTimes /> : <FaBars />} {/* Change icon based on menu state */}
+                {menuOpen ? <FaTimes /> : <FaBars />}
             </div>
 
             {/* Menu Links - Toggled based on menuOpen state */}
@@ -86,5 +88,3 @@ const Navbar = ({ onSearch }) => {
 };
 
 export default Navbar;
-
-

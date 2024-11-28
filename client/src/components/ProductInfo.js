@@ -40,38 +40,45 @@ function ProductInfo({ setCart }) {
   const handleCloseModal = () => setShowModal(false);
 
   return (
-    <div className="product-info">
-      <div className="card">
-        <img className='product-img' src={product.image} alt={product.name} />
-      </div>
-      <div>
-        <div className="card-body">
-          <h2 className="card-title">{product.name}</h2>
-          <p className='price'>${product.price}</p>
-          <p className='description'>{product.description}</p>
-          <button className="cart-btn" onClick={handleAddToCart}>ADD TO CART</button>
-        </div>
-      </div>
-      <button className='info-back-btn' onClick={() => navigate(-1)}>&lt;</button>
+<div className="product-info">
+  {/* Product Image */}
+  <div className="card">
+    <img className="product-img" src={product.image} alt={product.name} />
+  </div>
 
-      {/* Bootstrap Modal */}
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Success</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="text-center">
-            <span style={{ fontSize: '24px', color: 'green' }}>✔️</span>
-            <p>Product added to cart successfully!</p>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            OK
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+  {/* Product Details */}
+  <div className="product-details">
+    <h2 className="card-title">{product.name}</h2>
+    <p className="price">${product.price}</p>
+    <p className="description">{product.description}</p>
+    <button className="cart-btn" onClick={handleAddToCart}>
+      Add to Cart
+    </button>
+    <button className="info-back-btn" onClick={() => navigate(-1)}>
+      &lt;
+    </button>
+  </div>
+
+  {/* Success Modal */}
+  <Modal show={showModal} onHide={handleCloseModal}>
+    <Modal.Header closeButton>
+      <Modal.Title>Success</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <div className="text-center">
+        <span style={{ fontSize: '24px', color: 'green' }}>✔️</span>
+        <p>Product added to cart successfully!</p>
+      </div>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant="secondary" onClick={handleCloseModal}>
+        OK
+      </Button>
+    </Modal.Footer>
+  </Modal>
+</div>
+
+    
   );
 }
 

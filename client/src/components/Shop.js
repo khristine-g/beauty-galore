@@ -4,6 +4,8 @@ import '../Shop.css';
 
 function Shop() {
   return (
+    <div className="animate-on-scroll">
+
     <div className="shop-container">
       <div className="shop-image-wrapper">
         <img
@@ -21,6 +23,7 @@ function Shop() {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   );
 }

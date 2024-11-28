@@ -1,140 +1,69 @@
 import React, { useState, useEffect } from 'react';
-import ProductList from './ProductList';
 import Category from './Category';
+import ProductList from './ProductList';
 import Shop from './Shop';
-import TopSellers from './ Offers';
 import TrendingProducts from './TrendingProducts';
-import NewsletterModal from './NewsletterModal'; 
+import NewsletterModal from './NewsletterModal';
 import Marquee from './Marquee';
 import Footer from './Footer';
-// import Chatbot from './Chatbot';
 import '../Home.css';
+import beautyImage1 from '../images/beauty3.jpg';
+import beautyImage2 from '../images/beauty4.jpg';
 
 const Home = ({ onSelectCategory }) => {
   const slides = [
     {
-      image: 'https://lucebeauty.com/cdn/shop/articles/Blog_picture_resized_8.png?v=1688026170',
-      text: 'Discover our self-care essentials',
+      image: beautyImage2,
+      text: 'Discover Radiant Skin Today',
     },
     {
-      image: 'https://www.beautyheaven.com.au/wp-content/uploads/2022/08/bh-header-oily-skin-care.png',
-      text: 'Experience the magic of skincare',
+      image: beautyImage1,
+      text: 'Stay Ahead with New Beauty Trends',
     },
     {
-      image: 'https://media.istockphoto.com/id/1271527412/photo/beautiful-girl-with-curly-hairstyle.jpg?s=612x612&w=0&k=20&c=RygxTaSW8t8A5cPdXBPqStdu1TfJDvBaxbZEWNLVprg=',
-      text: 'Enhance your beauty routine with friends',
+      backgroundColor: 'black', 
+      text: 'Exclusive Skincare Products Just for You',
     },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isModalOpen, setModalOpen] = useState(true); // Start with the modal open
+  const [isModalOpen, setModalOpen] = useState(true);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000);
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
   }, [slides.length]);
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const closeModal = () => setModalOpen(false);
 
   return (
     <>
-      <div className='slideshow-container'>
+      <div className="hero">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`slide ${index === currentSlide ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
+            className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+            style={slide.backgroundColor ? { backgroundColor: slide.backgroundColor } : {}}
           >
-            <div className="slide-content">
-              <h2>{slide.text}</h2>
-              <p>Browse our collection of skincare essentials, curated for your best self.</p>
-              <button className="browse-btn">Browse more</button>
+            {slide.image && <img src={slide.image} alt={slide.text} />}
+            <div className={`hero-content ${index === currentSlide ? 'animate' : ''}`}>
+              <h1>{slide.text}</h1>
+              <button className="cta-btn">Explore Now<span className="arrow-icon">→</span></button>
             </div>
           </div>
         ))}
       </div>
-
-     {/* <Chatbot /> */}
-     <Marquee />
+      <Marquee />
       <Category onSelectCategory={onSelectCategory} />
+      <TrendingProducts />
       <ProductList />
       <Shop />
-      < TopSellers/>
-      <TrendingProducts />
       <Footer />
-
-
-      {isModalOpen && <NewsletterModal onClose={closeModal} />} {/* Render the modal */}
+      {isModalOpen && <NewsletterModal onClose={closeModal} />}
     </>
   );
 };
-
 export default Home;
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import ProductList from './ProductList';
-// import Category from './Category';
-// import Shop from './Shop';
-// import '../Home.css';
-
-// const Home = ({ onSelectCategory }) => {
-//   const slides = [
-//     {
-//       image: ' https://lucebeauty.com/cdn/shop/articles/Blog_picture_resized_8.png?v=1688026170',
-//       text: 'Discover our self-care essentials',
-//     },
-//     {
-//       image: 'https://www.beautyheaven.com.au/wp-content/uploads/2022/08/bh-header-oily-skin-care.png',
-//       text: 'Experience the magic of skincare',
-//     },
-//     {
-//       image: 'https://cureaquagel.com/cdn/shop/articles/November-Is-National-Health-Skin-Month-Its-Time-To-Promote-Good-Skin-Care-Habits.jpg?v=1660056045',
-//       text: 'Enhance your beauty routine with friends',
-//     },
-//   ];
-
-//   const [currentSlide, setCurrentSlide] = useState(0);
-
-//   useEffect(() => {
-//     const intervalId = setInterval(() => {
-//       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-//     }, 5000); // Change slide every 5 seconds
-
-//     return () => clearInterval(intervalId); // Cleanup interval on component unmount
-//   }, [slides.length]);
-
-//   return (
-//     <>
-//       <div className='slideshow-container'>
-//         {slides.map((slide, index) => (
-//           <div
-//             key={index}
-//             className={`slide ${index === currentSlide ? 'active' : ''}`}
-//             style={{ backgroundImage: `url(${slide.image})` }}
-//           >
-//             <div className="slide-content">
-//               <h2>{slide.text}</h2>
-//               <p>Browse our collection of skincare essentials, curated for your best self.</p>
-//               <button className="browse-btn">Browse More</button>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Category and ProductList displayed below the images */}
-//       <Category onSelectCategory={onSelectCategory} />
-     
-//       <ProductList />
-//       <Shop />
-//     </>
-//   );
-// };
-
-// export default Home;

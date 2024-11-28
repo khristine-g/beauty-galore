@@ -22,38 +22,54 @@ function Category({ onSelectCategory }) {
   }, []);
 
   const handleNext = useCallback(() => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex < categories.length - 4 ? prevIndex + 1 : 0;
-      return newIndex;
-    });
+    setCurrentIndex((prevIndex) =>
+      prevIndex < categories.length - 4 ? prevIndex + 1 : 0
+    );
   }, [categories.length]);
 
   const handlePrev = useCallback(() => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex > 0 ? prevIndex - 1 : categories.length - 4;
-      return newIndex;
-    });
+    setCurrentIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : categories.length - 4
+    );
   }, [categories.length]);
+
   const handleSelectCategory = (categoryId) => {
-    onSelectCategory(categoryId); // Set selected category
-    navigate('/products'); // Navigate to products page
+    onSelectCategory(categoryId);
+    navigate('/products');
   };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       handleNext();
-    }, 3000); // Adjust the duration (3000ms = 3s) for smooth movement
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, [handleNext]);
 
   return (
-    <div className='Category'>
-      <h2 className='category-header'>SHOP BY CATEGORIES</h2>
-      <p>The World's Premium Brands In One Destination.</p>
+    <div className="animate-on-scroll">
+    <div className="category-section">
+      <h5 className="category-header">SHOP BY CATEGORIES</h5>
+      <p className="category-subheader">
+        Explore the finest selection from premium brands worldwide.
+      </p>
+
+      <div className="category-buttons-container">
+        {categories.map((category) => (
+          <button
+            key={category.id}
+            className="category-button"
+            onClick={() => handleSelectCategory(category.id)}
+          >
+            {category.name}
+          </button>
+        ))}
+      </div>
 
       <div className="carousel-container">
-        <button className="prev-btn" onClick={handlePrev}>&lt;</button>
+        <button className="prev-btn" onClick={handlePrev}>
+          &lt;
+        </button>
         <div className="carousel-track-container">
           <div
             className="carousel-track"
@@ -65,25 +81,24 @@ function Category({ onSelectCategory }) {
                 className="category-card"
                 onClick={() => handleSelectCategory(category.id)}
               >
-                <div className="category-img-card">
-                  <img className="category-img" src={category.image} alt={category.name} />
-                </div>
-                <div className="category-details">
-                  <h4 className="category-name">{category.name}</h4>
+                <div className="category-img-container">
+                  <img
+                    className="category-img"
+                    src={category.image}
+                    alt={category.name}
+                  />
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <button className="next-btn" onClick={handleNext}>&gt;</button>
+        <button className="next-btn" onClick={handleNext}>
+          &gt;
+        </button>
       </div>
+    </div>
     </div>
   );
 }
 
-
-
 export default Category;
-
-
-

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../ProductList.css'; // Reuse the same CSS as ProductList
+import '../TrendingProducts.css'; // Reuse the same CSS as ProductList
 
 function TrendingProducts({ cart, setCart, removeFromCart }) {
   const [trendingProducts, setTrendingProducts] = useState([]);
@@ -26,8 +26,6 @@ function TrendingProducts({ cart, setCart, removeFromCart }) {
     navigate('/product-info', { state: { product } });
   };
 
-  
-
   const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex < trendingProducts.length - 4 ? prevIndex + 1 : 0;
@@ -51,13 +49,22 @@ function TrendingProducts({ cart, setCart, removeFromCart }) {
   }, [handleNext]);
 
   return (
-    <div className='ProductList'>
+    <div className="animate-on-scroll">
+    <div className='TrendingProducts'>
       <div>
-        <h2 className='product-header'>TRENDING PRODUCTS</h2>
+        <h2 className='trending-product-header'>TRENDING PRODUCTS</h2>
         <p>The Most Popular Products This Season.</p>
 
+        {/* Category buttons */}
+        <div className="category-buttons">
+          <button className="category-btn dark">Face</button>
+          <button className="category-btn">Lips</button>
+          <button className="category-btn">Eyes</button>
+          <button className="category-btn">Skin</button>
+        </div>
+
         <div className="carousel-container">
-          <button className="prev-btn" onClick={handlePrev}>&lt;</button>
+          <button className="trending-prev-btn" onClick={handlePrev}>&lt;</button>
           <div className="carousel-track-container">
             <div
               className="carousel-track"
@@ -66,29 +73,29 @@ function TrendingProducts({ cart, setCart, removeFromCart }) {
               {trendingProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="product-card"
+                  className="trending-product-card"
                   onClick={() => handleSelectProduct(product.id)}
                 >
-                  <div className="product-img-card">
-                    <img className="product-img" src={product.image} alt={product.name} />
+                  <div className="trending-product-img-card">
+                    <img className="trending-product-img" src={product.image} alt={product.name} />
                   </div>
-                  <div className="product-details">
-                    <h4 className="product-name">{product.name}</h4>
+                  <div className="trending-product-details">
+                    <h4 className="trending-product-name">{product.name}</h4>
                     <p className="price">${product.price}</p>
-                    <div className="product-rating">
+                    <div className="trending-product-rating">
                       {[...Array(5)].map((_, index) => (
                         <span key={index} className="star">&#9733;</span>
                       ))}
                     </div>
-                   
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <button className="next-btn" onClick={handleNext}>&gt;</button>
+          <button className="trending-next-btn" onClick={handleNext}>&gt;</button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
