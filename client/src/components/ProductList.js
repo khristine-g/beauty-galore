@@ -12,7 +12,7 @@ function ProductList() {
     // Fetch categories
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3000/categories');
+        const response = await fetch('https://beautygalore-e2698a7e3042.herokuapp.com/categories');
         const data = await response.json();
         setCategories(data);
       } catch (error) {
@@ -28,8 +28,8 @@ function ProductList() {
     const fetchProducts = async () => {
       try {
         const url = selectedCategory
-          ? `http://localhost:3000/categories/${selectedCategory}/products`
-          : 'http://localhost:3000/products';
+          ? `   https://beautygalore-e2698a7e3042.herokuapp.com//categories/${selectedCategory}/products`
+          : '   https://beautygalore-e2698a7e3042.herokuapp.com//products';
         const response = await fetch(url);
         const data = await response.json();
         setProducts(data);

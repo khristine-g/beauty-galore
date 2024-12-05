@@ -10,7 +10,7 @@ function TrendingProducts({ cart, setCart, removeFromCart }) {
   useEffect(() => {
     const fetchTrendingProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/trending');
+        const response = await fetch('https://beautygalore-e2698a7e3042.herokuapp.com/trending');
         const data = await response.json();
         setTrendingProducts(data);
       } catch (error) {

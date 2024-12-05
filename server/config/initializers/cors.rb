@@ -2,7 +2,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:4000'  # Replace with your React frontend's URL
+    origins 'https://truebeauty-ashen.vercel.app/ '  # Replace with your React frontend's URL
     resource '*', 
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
