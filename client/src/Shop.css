@@ -22,7 +22,7 @@
 
     object-fit: cover;
     padding: 10px;
-    border-radius: 10px; /* Optional: Rounded corners for the image */
+    border-radius: 60px; /* Optional: Rounded corners for the image */
   }
   
   .shop-content {
