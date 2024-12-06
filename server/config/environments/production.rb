@@ -94,4 +94,14 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+ # Allow cross-origin requests
+ config.action_dispatch.default_headers = {
+  'Access-Control-Allow-Origin' => 'https://truebeauty-ashen.vercel.app',
+  'Access-Control-Allow-Credentials' => 'true',
+  'Access-Control-Allow-Methods' => 'GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD',
+  'Access-Control-Allow-Headers' => 'Origin, Content-Type, Accept, Authorization, Token'
+}
+
+
+
 end

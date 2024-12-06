@@ -11,11 +11,9 @@
 #   end
 # end
 
-
-# config/initializers/cors.rb
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://truebeauty-ashen.vercel.app' # Replace with your frontend URL
+    origins 'https://truebeauty-ashen.vercel.app' # Replace with your Vercel URL
 
     resource '*',
       headers: :any,

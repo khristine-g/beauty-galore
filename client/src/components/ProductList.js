@@ -14,6 +14,7 @@ function ProductList() {
     const fetchCategories = async () => {
       try {
         const response = await fetch('https://beautygalore-e2698a7e3042.herokuapp.com/categories');
+        
         const data = await response.json();
         setCategories(data);
       } catch (error) {

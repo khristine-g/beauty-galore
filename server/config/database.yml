@@ -13,4 +13,8 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['DATABASE_URL'] %>
+  DATABASE_URL: <%= ENV['postgresql://truebeauty_user:XZwl3Tz2ylnuXiVRWuUaueBuDo030iOV@dpg-ct9ek89opnds73e8go4g-a/truebeauty'] %>
+  DATABASE_USER: truebeauty_user
+  DATABASE_PASSWORD: <%= ENV['XZwl3Tz2ylnuXiVRWuUaueBuDo030iOV'] %>
+  DATABASE_HOST: <%= ENV['dpg-ct9ek89opnds73e8go4g-a'] %>
+  SECRET_KEY_BASE: <%= ENV['4da41cfec8d36809e9843b8aaecd384cb0b768763677cfcce1a1aa43275fc5e92a8ab0cd4000b2c07c1d898802b646ad0b062be98e6c1169c9122a021b597886'] %>
