@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :offers, only: [:index, :show]
 
   resources :products, only: [:index]
+  root 'products#index'
+
   
   post '/auth/login', to: 'authentication#login'
   get 'products/search', to: 'products#search'
