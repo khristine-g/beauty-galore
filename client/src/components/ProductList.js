@@ -13,7 +13,7 @@ function ProductList() {
     // Fetch categories
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://beautygalore-e2698a7e3042.herokuapp.com/categories');
+        const response = await fetch('https://beauty-galore.onrender.com/categories');
         
         const data = await response.json();
         setCategories(data);
@@ -30,8 +30,8 @@ function ProductList() {
     const fetchProducts = async () => {
       try {
         const url = selectedCategory
-          ? `https://beautygalore-e2698a7e3042.herokuapp.com/categories/${selectedCategory}/products`
-          : 'https://beautygalore-e2698a7e3042.herokuapp.com/products';
+          ? `https://beauty-galore.onrender.com/categories/${selectedCategory}/products`
+          : 'https://beauty-galore.onrender.com/products';
 
         // Fetch products with JWT token and credentials if available
         const response = await fetch(url, {

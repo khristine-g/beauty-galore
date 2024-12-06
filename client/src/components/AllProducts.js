@@ -9,7 +9,7 @@ function AllProducts() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://beautygalore-e2698a7e3042.herokuapp.com/products');
+        const response = await fetch('https://beauty-galore.onrender.com/products');
         const data = await response.json();
         setProducts(data);
       } catch (error) {
