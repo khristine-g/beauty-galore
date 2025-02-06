@@ -29,3 +29,7 @@ With a simple one-click add-to-cart feature, users can easily review their selec
 
 📱 Responsive Design
 Built with a mobile-first approach, True Beauty ensures a flawless shopping experience across smartphones, tablets, and desktops.
+
+TECH STACK
+Frontend-React
+Backend-Ruby on rails
